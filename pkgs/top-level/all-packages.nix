@@ -22899,6 +22899,8 @@ in
     ogre = ogre1_9;
   };
 
+  openhexagon = callPackage ../games/openhexagon { };
+
   openlierox = callPackage ../games/openlierox { };
 
   openclonk = callPackage ../games/openclonk { };
