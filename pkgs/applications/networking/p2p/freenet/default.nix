@@ -1,21 +1,21 @@
-{ stdenv, fetchurl, fetchFromGitHub, ant, jdk, bash, coreutils, substituteAll }:
+{ stdenv, fetchurl, fetchFromGitHub, ant, gradle, jdk, bash, coreutils, substituteAll }:
 
 let
   freenet_ext = fetchurl {
     url = https://downloads.freenetproject.org/latest/freenet-ext.jar;
-    sha256 = "17ypljdvazgx2z6hhswny1lxfrknysz3x6igx8vl3xgdpvbb7wij";
+    sha256 = "0000000000000000000000000rknysz3x6igx8vl3xgdpvbb7wij";
   };
 
-  bcprov_version = "jdk15on-154";
+  bcprov_version = "jdk15on-164";
   bcprov = fetchurl {
     url = "https://www.bouncycastle.org/download/bcprov-ext-${bcprov_version}.jar";
-    sha256 = "0abmhg2h44g8c5p7skzqwfxj8xwcjh9vs84mc0hr78k1am0633jk";
+    sha256 = "000000000000000000000000000000000000000000k1am0633jk";
   };
   seednodes = fetchurl {
     url = https://downloads.freenetproject.org/alpha/opennet/seednodes.fref;
     sha256 = "08awwr8n80b4cdzzb3y8hf2fzkr1f2ly4nlq779d6pvi5jymqdvv";
   };
-  version = "build01475";
+  version = "build01485";
 
   freenet-jars = stdenv.mkDerivation {
     pname = "freenet-jars";
@@ -25,7 +25,7 @@ let
       owner = "freenet";
       repo = "fred";
       rev = version;
-      sha256 = "0k02fna9x219j7dhginbnf27i36bibb0rmm4qdwr5xm28hy1nd08";
+      sha256 = "0000000000000000000000000000ibb0rmm4qdwr5xm28hy1nd08";
     };
 
     patchPhase = ''
