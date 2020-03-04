@@ -2,6 +2,7 @@
 , lz4 ? null
 , lz4Support ? false
 , zstd
+, lzo
 }:
 
 assert lz4Support -> (lz4 != null);
@@ -24,14 +25,14 @@ stdenv.mkDerivation {
     ./4k-align.patch
   ] ++ stdenv.lib.optional stdenv.isDarwin ./darwin.patch;
 
-  buildInputs = [ zlib xz zstd ]
+  buildInputs = [ zlib xz zstd lzo ]
     ++ stdenv.lib.optional lz4Support lz4;
 
   preBuild = "cd squashfs-tools";
 
   installFlags = "INSTALL_DIR=\${out}/bin";
 
-  makeFlags = [ "XZ_SUPPORT=1" "ZSTD_SUPPORT=1" ]
+  makeFlags = [ "XZ_SUPPORT=1" "ZSTD_SUPPORT=1" "LZO_SUPPORT=1" ]
     ++ stdenv.lib.optional lz4Support "LZ4_SUPPORT=1";
 
   meta = {
