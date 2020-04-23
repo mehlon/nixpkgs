@@ -1,8 +1,8 @@
 ---
 name: Packaging requests
 about: For packages that are missing
-title: ''
-labels: '0.kind: packaging request'
+title: fef
+labels: ''
 assignees: ''
 
 ---
